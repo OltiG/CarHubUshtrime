@@ -41,4 +41,6 @@ public class CarDto {
     private String imageOfVehicle;
 
     private String gearType;
+
+    private FuelType fuelType;
 }

@@ -1,5 +1,6 @@
 package dev.oltijanuzi.carhubushtrime.dto;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -37,5 +38,8 @@ public class UserDto {
     @NotNull(message = "Location cannot be null")
     @NotBlank(message = "Location cannot be empty")
     private String location;
+
+    @Nullable
+    private String documentUrl;
 
 }

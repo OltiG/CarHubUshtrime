@@ -1,10 +1,7 @@
 package dev.oltijanuzi.carhubushtrime.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +32,12 @@ public class User {
     @NotBlank(message = "Surname cannot be empty")
     private String surname;
 
+    @Column(nullable = false)
+    @Size(min = 8, max = 50, message = "Password must be at least 8 characters long")
+    @NotNull(message="Password cannot be null")
+    @NotBlank(message = "Password cannot be empty")
+    private String password;
+
     @Column(nullable = false, length = 500)
     @Size(max = 500)
     private String address;
@@ -55,7 +58,7 @@ public class User {
     @Size(max = 50)
     @NotNull(message="Email cannot be null")
     @NotBlank(message = "Email cannot be empty")
-    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Invalid email format")
+    @Email
     private String email;
 
     @Column(nullable = false, length = 50)
