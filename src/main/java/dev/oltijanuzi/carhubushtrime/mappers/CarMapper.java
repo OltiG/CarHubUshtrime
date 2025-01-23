@@ -5,18 +5,19 @@ import dev.oltijanuzi.carhubushtrime.model.Car;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import org.springframework.context.annotation.Primary;
 
-@Mapper(componentModel="spring")
-public interface CarMapper extends SimpleMapper<Car, CarDto>{
-    CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
+import java.util.List;
 
-    @Override
-    @Mapping(source = "gearType", target = "gearType")
-    @Mapping(target = "imageUrl", ignore = true) // Exclude image URL in this case
-    Car toModel(CarDto dto);
-
-    @Override
-    @Mapping(source = "gearType", target = "gearType")
-    @Mapping(source = "imageUrl", target = "imageUrl")
+@Mapper(componentModel = "spring")
+public interface CarMapper {
+    // Map Car to CarDto
     CarDto toDto(Car car);
+
+    // Map CarDto to Car
+    Car toEntity(CarDto carDto);
+
+    // Optional: Batch mapping for lists
+    List<CarDto> toDtos(List<Car> cars);
+    List<Car> toEntities(List<CarDto> carDtos);
 }

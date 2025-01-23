@@ -1,5 +1,6 @@
 package dev.oltijanuzi.carhubushtrime.model;
 
+import dev.oltijanuzi.carhubushtrime.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -80,25 +81,6 @@ public class User {
 
     @Column(length = 1000)
     @Size(max = 1000)
-    @NotNull(message="Pickup date cannot be null")
-    @NotBlank(message = "Pickup date cannot be empty")
-    private LocalDate pickupDate;
-
-    @Column(length = 1000)
-    @Size(max = 1000)
-    @NotNull(message="Pickup time cannot be null")
-    @NotBlank(message = "Pickup time cannot be empty")
-    private LocalDateTime pickupTime;
-
-    @Column(length = 1000)
-    @Size(max = 1000)
-    @NotNull(message="Return date cannot be null")
-    @NotBlank(message = "Return date cannot be empty")
-    private LocalDate returnDate;
-
-    @Column(length = 1000)
-    @Size(max = 1000)
-    @NotNull(message="Return time cannot be null")
-    @NotBlank(message = "Return time cannot be empty")
-    private LocalDateTime returnTime;
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 }

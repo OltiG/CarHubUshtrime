@@ -1,21 +1,13 @@
 package dev.oltijanuzi.carhubushtrime.dto;
 
-import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.NumberFormat;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
-    @Positive(message = "Id must be a positive number")
     private Long id;
 
     @NotNull(message = "Name cannot be null")
@@ -38,8 +30,4 @@ public class UserDto {
     @NotNull(message = "Location cannot be null")
     @NotBlank(message = "Location cannot be empty")
     private String location;
-
-    @Nullable
-    private String documentUrl;
-
 }

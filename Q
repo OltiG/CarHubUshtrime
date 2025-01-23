@@ -1,0 +1,23 @@
+[33mcommit 6c8b23bd4f98a3600a435ecf753914459dcaea20[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: OltiG <oltii.januzii@gmail.com>
+Date:   Wed Jan 22 14:09:38 2025 +0100
+
+    Dto i kem kry me menim temin?
+
+[33mcommit 5ae7c714b62f2bf7c903d04d4f5477bc0d446430[m
+Author: OltiG <oltii.januzii@gmail.com>
+Date:   Wed Jan 22 10:47:58 2025 +0100
+
+    Dy file tri
+
+[33mcommit e1bf9100448543a525f752a8ab561549bb78c486[m
+Author: OltiG <oltii.januzii@gmail.com>
+Date:   Wed Jan 22 10:47:17 2025 +0100
+
+    Dy file tri
+
+[33mcommit 51dafb8142b479cd9805fd48ae79cc707fed3c46[m
+Author: OltiG <oltii.januzii@gmail.com>
+Date:   Wed Jan 22 10:35:07 2025 +0100
+
+    Commiti i pare, kerkah sjem a

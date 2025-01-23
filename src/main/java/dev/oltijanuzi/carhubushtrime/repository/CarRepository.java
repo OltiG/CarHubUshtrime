@@ -29,4 +29,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findAllByPrice(double price);
 
     List<Car> findAllByFuelType(FuelType fuelType);
+
+    List<Car> findAllByProducedYear(int producedYear);
 }

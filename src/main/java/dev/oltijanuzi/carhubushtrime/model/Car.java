@@ -77,7 +77,4 @@ public class Car {
     @Column(nullable = false, length = 50)
     @Size(max = 50)
     private double mileage;
-
-    @OneToMany(mappedBy = "car")
-    private List<Rental> rental;
 }

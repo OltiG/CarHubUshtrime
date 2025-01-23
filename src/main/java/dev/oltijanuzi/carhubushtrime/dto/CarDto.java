@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarDto {
-
-    @Positive(message = "Id must be a positive number")
     private Long id;
 
     @NotNull(message = "Brand cannot be null")
@@ -28,19 +26,24 @@ public class CarDto {
     @Positive(message = "Produced year must be a positive number")
     private int producedYear;
 
-
     private String color;
 
     @Positive(message = "Price must be a positive number")
-    @NotBlank(message = "Price cannot be empty")
-    @NotNull(message = "Price cannot be null")
     private double price;
 
-    @NotNull(message = "Image of vehicle cannot be null")
-    @NotBlank(message = "Image of vehicle cannot be empty")
     private String imageOfVehicle;
+
+    private boolean isAvailable;
+
+    private int horsePower;
+
+    private int seats;
 
     private String gearType;
 
+    private int speed;
+
     private FuelType fuelType;
+
+    private double mileage;
 }
