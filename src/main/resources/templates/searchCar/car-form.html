@@ -1,0 +1,52 @@
+<!--<form action="/cars/add" method="post" class="request-form ftco-animate bg-primary">-->
+<!--    <h2>Add a New Car</h2>-->
+<!--    <div class="form-group">-->
+<!--        <label for="brand" class="label">Brand</label>-->
+<!--        <input type="text" name="brand" class="form-control" placeholder="Mercedes, BMW, Audi" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="model" class="label">Model</label>-->
+<!--        <input type="text" name="model" class="form-control" placeholder="G Class, M5 CS, RSQ8" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="producedYear" class="label">Year</label>-->
+<!--        <input type="number" name="producedYear" class="form-control" placeholder="2023" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="color" class="label">Color</label>-->
+<!--        <input type="text" name="color" class="form-control" placeholder="Red, Black, White" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="price" class="label">Price</label>-->
+<!--        <input type="number" name="price" class="form-control" placeholder="50000" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <input type="submit" value="Add Car" class="btn btn-secondary py-3 px-4">-->
+<!--    </div>-->
+<!--</form>-->
+
+
+<form th:action="@{/cars/add}" method="post" class="request-form ftco-animate bg-primary"
+      th:object="${car}">
+    <h2>Add a New Car</h2>
+    <div class="form-group">
+        <label for="brand" class="label">Brand</label>
+        <input type="text" th:field="*{brand}" class="form-control" required>
+        <div th:if="${#fields.hasErrors('brand')}" class="text-danger" th:errors="*{brand}"></div>
+    </div>
+
+    <!-- Add similar fields for other car properties -->
+
+    <div class="form-group">
+        <label class="label">Fuel Type</label>
+        <select th:field="*{fuelTypes}" class="form-control">
+            <option th:each="type : ${fuelTypes}"
+                    th:value="${type}"
+                    th:text="${type}"></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Add Car" class="btn btn-secondary py-3 px-4">
+    </div>
+</form>

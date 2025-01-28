@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - CarHub</title>
+    <link rel="stylesheet" th:href="@{/assets/css/pureStyle.css}">
+</head>
+<body>
+<th:block th:insert="~{/shared/_navbar.html}"></th:block>
+
+<div class="container">
+    <h2 style="margin-top: 50px">Contact Us</h2>
+
+    <div class="contact-form">
+        <form th:action="@{/contact}" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="label-cnt" for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label class="label-cnt" for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="label-cnt" for="email">E-mail *</label>
+                <input type="email" id="email" name="email"
+                       placeholder="example@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="label-cnt" for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button class="btn-submit" type="submit">SUBMIT</button>
+        </form>
+    </div>
+
+    <h4>Or contact our admins directly:</h4>
+    <div class="admin-container">
+        <!-- Admin 1 -->
+        <div class="whatsapp-admin">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo"
+                 alt="WhatsApp">
+            <h3>Donart Sylejmani</h3>
+            <p>Sales Manager</p>
+            <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+                Message via WhatsApp
+            </a>
+        </div>
+
+        <!-- Admin 2 -->
+        <div class="whatsapp-admin">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo"
+                 alt="WhatsApp" >
+            <h3>Olti Januzi</h3>
+            <p>Customer Support</p>
+            <a href="https://wa.me/0987654321" class="whatsapp-btn" target="_blank">
+                Message via WhatsApp
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

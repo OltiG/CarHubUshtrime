@@ -1,6 +1,7 @@
 package dev.oltijanuzi.carhubushtrime.mappers;
 
 import dev.oltijanuzi.carhubushtrime.dto.UserDto;
+import dev.oltijanuzi.carhubushtrime.dto.UserRegisterDto;
 import dev.oltijanuzi.carhubushtrime.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -23,4 +24,6 @@ public interface UserMapper {
     // Optional: Batch mapping for lists
     List<UserDto> toDtos(List<User> users);
     List<User> toEntities(List<UserDto> userDtos);
+
+    User registerDtoToUser(UserRegisterDto registerDto);
 }

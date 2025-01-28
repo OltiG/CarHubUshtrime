@@ -79,8 +79,7 @@ public class User {
     @Size(max = 1000)
     private String documentUrl;
 
-    @Column(length = 1000)
-    @Size(max = 1000)
     @Enumerated(EnumType.STRING)
-    private UserRole userRole;
+    @Column(nullable = false)
+    private UserRole userRole = UserRole.CUSTOMER;
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--<html th:replace="~{shared/_layout::layout('Home Page', ~{::#olti}, null, null)}">-->
+<div id="content">
+    <div class="container">
+        <h1 class="mb-4">Available Cars</h1>
+
+        <div class="row">
+            <div th:each="car : ${cars}" class="col-md-4 mb-4">
+                <div class="card">
+                    <img th:src="${car.imageOfVehicle}" class="card-img-top" alt="Car image">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${car.brand + ' ' + car.model}"></h5>
+                        <p class="card-text">
+                            <span th:text="${'Year: ' + car.producedYear}"></span><br>
+                            <span th:text="${'Price: $' + #numbers.formatDecimal(car.price, 1, 2)}"></span>
+                        </p>
+                        <a th:href="@{/cars/{id}(id=${car.id})}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${cars.empty}" class="alert alert-info">
+            No cars available at the moment.
+        </div>
+    </div>
+</div>
+</html>

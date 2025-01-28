@@ -1,0 +1,116 @@
+<!--<!DOCTYPE html>-->
+<!--&lt;!&ndash;<html th:replace="~{shared/_layout::layout('Login Page', ~{::#olti}, null, null)}">&ndash;&gt;-->
+<!--<div id="content">-->
+<!--    <div class="container mt-5">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <div class="col-md-6">-->
+<!--                <div class="card">-->
+<!--                    <div class="card-header">-->
+<!--                        <h3 class="mb-0">Login</h3>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <form th:action="@{/login}" method="post">-->
+<!--                            <div class="form-group">-->
+<!--                                <label>Email</label>-->
+<!--                                <input type="email" name="username" class="form-control" required>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label>Password</label>-->
+<!--                                <input type="password" name="password" class="form-control" required>-->
+<!--                            </div>-->
+<!--                            <div th:if="${param.error}" class="alert alert-danger mt-3">-->
+<!--                                Invalid email or password-->
+<!--                            </div>-->
+<!--                            <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>-->
+<!--                        </form>-->
+<!--                        <div class="mt-3 text-center">-->
+<!--                            <a th:href="@{/register}">Create an account</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loginn</title>
+    <link rel="stylesheet" href="/assets/css/pureStyle.css" ></link>
+</head>
+<body>
+
+
+<br>
+<br>
+
+<div class="cont">
+    <div class="form sign-in">
+        <h2>Welcome</h2>
+        <label>
+            <span>Email</span>
+            <input type="email" />
+        </label>
+        <label>
+            <span>Password</span>
+            <input type="password" />
+        </label>
+        <p class="forgot-pass">Forgot password?</p>
+        <button type="button" class="submit">Sign In</button>
+
+    </div>
+    <div class="sub-cont">
+        <div class="img">
+            <div class="img__text m--up">
+
+                <h3>Don't have an account? Please Sign up!<h3>
+            </div>
+            <div class="img__text m--in">
+
+                <h3>If you already has an account, just sign in.<h3>
+            </div>
+            <div class="img__btn">
+                <span class="m--up">Sign Up</span>
+                <span class="m--in">Sign In</span>
+            </div>
+        </div>
+        <div class="form sign-up">
+            <h2>Create your Account</h2>
+            <label>
+                <span>Name</span>
+                <input type="text" />
+            </label>
+            <label>
+                <span>Phonee</span>
+                <input type="text" />
+            </label>
+            <label>
+                <span>Email</span>
+                <input type="email" />
+            </label>
+            <label>
+                <span>Password</span>
+                <input type="password" />
+            </label>
+            <label>
+                <span>Confirm Password</span>
+                <input type="password" />
+            </label>
+            <button type="button" class="submit">Sign Up</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.img__btn').addEventListener('click', function() {
+        document.querySelector('.cont').classList.toggle('s--signup');
+    });
+</script>
+</body>
+</html>

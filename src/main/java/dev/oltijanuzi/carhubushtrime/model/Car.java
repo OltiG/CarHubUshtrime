@@ -2,14 +2,13 @@ package dev.oltijanuzi.carhubushtrime.model;
 
 import dev.oltijanuzi.carhubushtrime.enums.FuelType;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -34,8 +33,8 @@ public class Car {
     @NotBlank(message = "Model cannot be empty")
     private String model;
 
-    @Column(nullable = false, length = 4)
-    @Size(max = 4)
+    @Column(nullable = false)
+    @Min(1886) @Max(2025)
     private int producedYear;
 
     @Column(nullable = false, length = 50)
@@ -77,4 +76,12 @@ public class Car {
     @Column(nullable = false, length = 50)
     @Size(max = 50)
     private double mileage;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
