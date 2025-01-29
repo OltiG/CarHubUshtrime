@@ -39,20 +39,16 @@ public class User {
     @NotBlank(message = "Password cannot be empty")
     private String password;
 
-    @Column(nullable = false, length = 500)
-    @Size(max = 500)
+    @Column(nullable = true)
     private String address;
 
-    @Column(nullable = false, length = 100)
-    @Size(max = 100, message = "City has to be less than 100 characters")
+    @Column(nullable = true)
     private String city;
 
-    @Column(nullable = false, length = 100)
-    @Size(max = 100, message = "State has to be less than 100 characters")
+    @Column(nullable = true)
     private String state;
 
-    @Column(nullable = false, length = 10)
-    @Size(min = 5, max = 10, message = "Zip code has to be between 5 and 10 characters")
+    @Column(nullable = true)
     private String zip;
 
     @Column(nullable = false, length = 50)
@@ -62,24 +58,15 @@ public class User {
     @Email
     private String email;
 
-    @Column(nullable = false, length = 50)
-    @Size(max = 50)
-    @NotNull(message="Phone cannot be null")
-    @NotBlank(message = "Phone cannot be empty")
-    @Pattern(regexp = "^[0-9]{10}$", message = "Invalid phone number format")
+    @Column(nullable = true, length = 50)
+    @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Invalid phone format")
     private String phone;
-
-    @Column(nullable = false, length = 50)
-    @Size(max = 50)
-    @NotNull(message="Location cannot be null")
-    @NotBlank(message = "Location cannot be empty")
-    private String location;
 
     @Column(length = 1000)
     @Size(max = 1000)
-    private String documentUrl;
+    private String documentUrl ="Anonymous";
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = true)
     private UserRole userRole = UserRole.CUSTOMER;
 }

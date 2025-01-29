@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/assets/css/pureStyle.css">
+</head>
+<body>
+<th:block th:insert="~{/shared/_navbar.html}"></th:block>
+<article class="post-27 page type-page">
+    <div class="entry-content">
+        <div class="section-marks gray-circle">
+            <div class="car-details">
+                <h1>Car Details</h1>
+
+                <div class="car-info">
+                    <!-- Car Image -->
+                    <img th:src="@{/assets/image/{image}(image=${car.imageOfVehicle})}" alt="Car Image" class="car-image">
+
+                    <!-- Car Name -->
+                    <h2 th:text="${car.brand} + ' ' + ${car.model}"></h2>
+
+                    <!-- Car Details -->
+                    <p><strong>Produced Year:</strong> <span th:text="${car.producedYear}"></span></p>
+                    <p><strong>Price:</strong> <span th:text="${car.price}"></span></p>
+                    <p><strong>Color:</strong> <span th:text="${car.color}"></span></p>
+                    <p><strong>Horse Power:</strong> <span th:text="${car.horsePower}"></span></p>
+                    <p><strong>Seats:</strong> <span th:text="${car.seats}"></span></p>
+                    <p><strong>Fuel Type:</strong> <span th:text="${car.fuelType}"></span></p>
+                    <p><strong>Gear Type:</strong> <span th:text="${car.gearType}"></span></p>
+                    <p><strong>Mileage:</strong> <span th:text="${car.mileage}"></span></p>
+                    <p><strong>Speed:</strong> <span th:text="${car.speed}"></span></p>
+
+                    <p class="availability">
+                        <strong>Availability:</strong> <span th:text="${car.isAvailable ? 'Available' : 'Not Available'}"></span>
+                    </p>
+                </div>
+
+                <!-- Button to Go Back -->
+                <a href="/cars" class="btn-back">Back to Cars List</a>
+            </div>
+        </div>
+    </div>
+</article>
+<th:block th:insert="~{/shared/_footer.html}"></th:block>
+</body>
+</html>

@@ -20,6 +20,6 @@ public interface CarService {
 
     void updateCarAvailability(Long id, boolean isAvailable);
 
-    List <CarDto> getFeaturedCars(int count);
+
 }
 

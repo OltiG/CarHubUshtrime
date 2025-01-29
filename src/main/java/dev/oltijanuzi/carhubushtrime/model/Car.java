@@ -22,14 +22,12 @@ public class Car {
     private Long id;
 
     @Column(nullable = false, length = 50)
-    @Size(max = 50)
-    @NotNull(message="Brand cannot be null")
+    @NotNull(message = "Brand cannot be null")
     @NotBlank(message = "Brand cannot be empty")
     private String brand;
 
     @Column(nullable = false, length = 50)
-    @Size(max = 50)
-    @NotNull(message="Model cannot be null")
+    @NotNull(message = "Model cannot be null")
     @NotBlank(message = "Model cannot be empty")
     private String model;
 
@@ -38,50 +36,40 @@ public class Car {
     private int producedYear;
 
     @Column(nullable = false, length = 50)
-    @Size(max = 50)
     private String color;
 
-    @Column(nullable = false, length = 10)
-    @Size(max = 10)
+    @Column(nullable = false)
+    @Positive(message = "Price must be a positive number")
     private double price;
 
     @Column(nullable = false , length = 500)
-    @Size(max = 500)
     private String imageOfVehicle;
 
     @Column(nullable = false)
     private boolean isAvailable;
 
-    @Column(nullable = false, length = 100)
-    @Size(max = 100)
+    @Column(nullable = false)
+    @Positive(message = "Horsepower must be a positive number")
     private int horsePower;
 
-    @Column(nullable = false, length = 10)
-    @Size(max = 10)
+    @Column(nullable = false)
+    @Positive(message = "Seats must be a positive number")
     private int seats;
 
     @Column(nullable = false, length = 50)
-    @Size(max = 50)
     private String gearType;
 
-    @Column(nullable = false, length = 50)
-    @Size(max = 50)
+    @Column(nullable = false)
+    @Positive(message = "Speed must be a positive number")
     private int speed;
 
     @Column(nullable = false, length = 50)
-    @Size(max = 50)
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;
 
-    @Column(nullable = false, length = 50)
-    @Size(max = 50)
+    @Column(nullable = false)
+    @Positive(message = "Mileage must be a positive number")
     private double mileage;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
 
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
 }

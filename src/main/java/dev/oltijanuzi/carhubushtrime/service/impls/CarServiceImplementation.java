@@ -73,12 +73,7 @@ public class CarServiceImplementation implements CarService {
         carRepository.save(car);
     }
 
-    @Override
-    public List<CarDto> getFeaturedCars(int count) {
-        Pageable pageable = PageRequest.of(0, count); // Fetch the first 'count' results
-        List<Car> featuredCars = carRepository.findByIsAvailableTrueOrderByCreatedAtDesc(pageable);
-        return carMapper.toDtos(featuredCars);
-    }
+
 
 
 }

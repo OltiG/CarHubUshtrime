@@ -21,15 +21,15 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserDto registerUser(@Valid @RequestBody UserRegisterDto registerDto,
-                                BindingResult bindingResult) throws EmailExistsException {
-        if (bindingResult.hasErrors()) {
-            throw new InvalidUserDataException("Invalid registration data");
-        }
-        return userService.registerUser(registerDto);
-    }
+//    @PostMapping("/register")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public UserDto registerUser(@Valid @RequestBody UserRegisterDto registerDto,
+//                                BindingResult bindingResult) throws EmailExistsException {
+//        if (bindingResult.hasErrors()) {
+//            throw new InvalidUserDataException("Invalid registration data");
+//        }
+//        return userService.registerUser(registerDto);
+//    }
 
     @GetMapping("/{id}")
     @PreAuthorize("isAuthenticated()")

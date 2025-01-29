@@ -38,7 +38,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
 
     List<Car> findAllByProducedYear(int producedYear);
 
-    List<Car> findByIsAvailableTrueOrderByCreatedAtDesc(Pageable pageable);
 
     boolean existsByBrandAndModelAndProducedYear(String brand, String model, int producedYear);
 }

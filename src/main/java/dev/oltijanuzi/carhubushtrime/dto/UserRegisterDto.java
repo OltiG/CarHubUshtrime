@@ -24,9 +24,7 @@ public class UserRegisterDto {
     @Email
     private String email;
 
-    @NotBlank(message = "Phone cannot be empty")
-    @NotNull(message = "Phone cannot be null")
-    @Size(min = 9, max = 20, message = "Phone number must be between 9 and 20 digits")
+    @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Invalid phone format")
     private String phone;
 
     @Size(min = 8, max = 50, message = "Password must be at least 8 characters long")

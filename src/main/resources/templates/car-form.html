@@ -24,29 +24,3 @@
 <!--        <input type="submit" value="Add Car" class="btn btn-secondary py-3 px-4">-->
 <!--    </div>-->
 <!--</form>-->
-
-
-<form th:action="@{/cars/add}" method="post" class="request-form ftco-animate bg-primary"
-      th:object="${car}">
-    <h2>Add a New Car</h2>
-    <div class="form-group">
-        <label for="brand" class="label">Brand</label>
-        <input type="text" th:field="*{brand}" class="form-control" required>
-        <div th:if="${#fields.hasErrors('brand')}" class="text-danger" th:errors="*{brand}"></div>
-    </div>
-
-    <!-- Add similar fields for other car properties -->
-
-    <div class="form-group">
-        <label class="label">Fuel Type</label>
-        <select th:field="*{fuelTypes}" class="form-control">
-            <option th:each="type : ${fuelTypes}"
-                    th:value="${type}"
-                    th:text="${type}"></option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Add Car" class="btn btn-secondary py-3 px-4">
-    </div>
-</form>

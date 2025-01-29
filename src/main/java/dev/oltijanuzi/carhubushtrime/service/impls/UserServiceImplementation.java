@@ -1,6 +1,7 @@
 package dev.oltijanuzi.carhubushtrime.service.impls;
 
 import dev.oltijanuzi.carhubushtrime.dto.UserDto;
+import dev.oltijanuzi.carhubushtrime.dto.UserLoginDto;
 import dev.oltijanuzi.carhubushtrime.dto.UserRegisterDto;
 import dev.oltijanuzi.carhubushtrime.enums.UserRole;
 import dev.oltijanuzi.carhubushtrime.exceptions.EmailExistsException;
@@ -10,6 +11,7 @@ import dev.oltijanuzi.carhubushtrime.mappers.UserMapper;
 import dev.oltijanuzi.carhubushtrime.model.User;
 import dev.oltijanuzi.carhubushtrime.repository.UserRepository;
 import dev.oltijanuzi.carhubushtrime.service.UserService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserServiceImplementation implements UserService {
     private final UserRepository userRepository;
@@ -89,4 +92,36 @@ public class UserServiceImplementation implements UserService {
         user.setUserRole(role);
         return userMapper.toDto(userRepository.save(user));
     }
+
+    @Override
+    public UserLoginDto login(String email, String password) {
+        User user = userRepository.findCustomerByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new IllegalArgumentException("Invalid password");
+        }
+        return userMapper.toLoginDto(user);
+    }
+
+    @Override
+    // UserServiceImplementation.java
+    public boolean register(UserRegisterDto userRegisterDto) throws EmailExistsException {
+        User user = userMapper.registerDtoToUser(userRegisterDto);
+        user.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
+        user.setUserRole(UserRole.CUSTOMER);
+
+        // Set default values for nullable fields
+        user.setAddress("Not provided");
+        user.setCity("Not provided");
+        user.setState("Not provided");
+        user.setZip("Not provided");
+
+        userRepository.save(user);
+        return true;
+    }
+
+
+
+
+
 }
